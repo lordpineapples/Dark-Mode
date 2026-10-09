@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Light & Dark Mode</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // prevents theme flicker on initial load
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', initialTheme);
+    })();
+  </script>
+</head>
+<body>
+  <main>
+    <img id="themeImage" src="Night Sky.png" alt="Night Sky" class="theme-image" width="600" height="400">
+    <button id="themeToggleBtn" class="theme-toggle-btn" type="button">Change to Light Mode</button>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
